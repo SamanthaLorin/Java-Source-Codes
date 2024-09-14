@@ -1,0 +1,87 @@
+package com.mycompany.labexercise3;
+import java.util.Scanner;
+
+public class LABEXERCISE3 {
+
+    public static void main(String[] args) {
+        String passedSubjects = "";
+        String failedSubjects = "";
+
+        double engGrade = getEng();
+        double filGrade = getFil();
+        double mathGrade = getMath();
+        double sciGrade = getSci();
+        double socsciGrade = getSocsci();
+
+        if (isPassed(engGrade)) passedSubjects += "English, ";
+        else failedSubjects += "English, ";
+
+        if (isPassed(filGrade)) passedSubjects += "Filipino, ";
+        else failedSubjects += "Filipino, ";
+
+        if (isPassed(sciGrade)) passedSubjects += "Science, ";
+        else failedSubjects += "Science, ";
+
+        if (isPassed(mathGrade)) passedSubjects += "Math, ";
+        else failedSubjects += "Math, ";
+
+        if (isPassed(socsciGrade)) passedSubjects += "Social Science, ";
+        else failedSubjects += "Social Science, ";
+
+        double ave = getAve(engGrade, filGrade, mathGrade, sciGrade, socsciGrade);
+
+        System.out.println("\nYou passed your subject(s): " + passedSubjects);
+        System.out.println("You failed your subject(s): " + failedSubjects);
+        
+        System.out.println("\nYour average grade is " + (double) ave + " and you " + (ave >= 75 ? "PASSED! Yay!" : "Failed."));
+    }
+    
+    
+    
+    
+    
+
+    // Method - ENGLISH subject
+        public static double getEng() {
+        return printGrade("English"); 
+    }
+
+    // Method - FILIPINO subject
+        public static double getFil() {
+        return printGrade("Filipino"); 
+    }
+
+    // Method - MATH subject
+        public static double getMath() {
+        return printGrade("Math"); 
+    }
+
+    // Method - SCIENCE subject
+        public static double getSci() {
+        return printGrade("Science"); 
+    }
+
+    // Method - Social Science subject
+        public static double getSocsci() {
+        return printGrade("Social Science"); 
+    }
+        public static double printGrade(String sub) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Enter your grade in " + sub + ": ");
+            return scanner.nextDouble();
+    }
+        
+        
+        
+        
+        public static double getAve(double... grades) {
+            double sum = 0;
+            for (double grade : grades) {
+                sum += grade;
+        }
+            return sum / grades.length;
+    }
+    public static boolean isPassed(double grade) {
+        return grade >= 60;
+    }
+}
