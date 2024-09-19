@@ -1,0 +1,50 @@
+
+package com.mycompany.javapracticalexam01;
+import java.util.Scanner;
+
+public class JAVAPRACTICALEXAM01 {
+
+    public static void main(String[] args) {
+        
+        getBMI();
+        
+    }
+        public static void getBMI(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("BMI Calculator");
+        
+        System.out.print("Enter your height (m): ");
+        double m = input.nextDouble();
+
+        
+        System.out.print("Enter your weight (kg): ");
+        double kg = input.nextDouble();
+
+        double BMI = calcBMI(kg, m);
+        System.out.println("Your BMI is: " + BMI);
+        
+        if (BMI < 16.0){
+            System.out.println("Severly Underweight");
+        }else if(BMI >= 16.0 && BMI <=18.4 ){
+            System.out.println("Underweight");
+        }else if(BMI >= 18.5 && BMI <= 24.9){
+            System.out.println("Normal");
+        }else if(BMI >= 25.0 && BMI <= 29.9){
+            System.out.println("Overweight");
+        }else if(BMI >= 30.0 && BMI <= 34.9){
+            System.out.println("Moderately Obese");
+        }else if(BMI >= 35.0 && BMI <= 39.9){
+            System.out.println("Severly Obese");
+        }else if(BMI >= 40.0){
+            System.out.println("Morbidly Obese");
+        }
+        
+        }
+    
+        public static double calcBMI (double kg, double m){
+        double bmi;
+           return bmi = kg / Math.pow(m, 2);
+
+        }
+
+}
