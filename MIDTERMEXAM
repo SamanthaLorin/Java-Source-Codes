@@ -1,0 +1,104 @@
+
+package com.mycompany.hidalgo_mid;
+
+import java.util.Scanner;
+
+
+
+
+public class Hidalgo_mid {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+       
+        
+        System.out.println("[1] Store CCPRGG1L student record");
+        System.out.println("[2] Edit the student record");
+        System.out.println("[3] Dsiplay the recorded entry");
+        System.out.println("[4] Exit");
+        System.out.print("Choose: ");
+        int choose = input.nextInt();
+        
+        
+        
+        switch(choose){
+            case 1:
+                System.out.print("Enter Student Number: ");
+                int snum = input.nextInt();
+              
+                System.out.print("Enter Surname: ");
+                String lastname = input.nextLine();
+                
+                System.out.print("Enter First Name: ");
+                String firstname = input.nextLine();
+                
+                System.out.print("Enter gender: ");
+                String gender = input.nextLine();
+                
+                System.out.print("Enter Program: ");
+                String program = input.nextLine();
+                
+                System.out.println("Enter Section: ");
+                String sec = input.nextLine();
+                break;
+            case 2:
+                System.out.println("[1] Student Number");
+                System.out.println("[2] Surname");
+                System.out.println("[3] FirstName");
+                System.out.println("[4] Gender (M for male, F for Female");
+                System.out.println("[5] Program");
+                System.out.println("[6] Section");
+                System.out.print("Which entry do you want? : ");
+                int choose1 = input.nextInt();
+                editRecord(choose1);
+                break;
+            case 3:
+                
+            case 4:
+
+        }
+    }
+        public static void editRecord(int choose1){
+            Scanner input = new Scanner(System.in);
+            if(choose1==1){
+                System.out.println("Edit Student Number: ");
+                int snumber = input.nextInt();   
+                
+            }else if(choose1 == 2){
+                System.out.println("Edit Surname: ");
+                String sname = input.nextLine();
+                
+            }else if(choose1 == 3){
+                System.out.print("Enter First Name: ");
+                String firstname = input.nextLine();
+                
+            }else if(choose1 == 4){
+                System.out.print("Enter gender: ");
+                String gender = input.nextLine();
+            }else if(choose1 == 5){
+                System.out.print("Enter Program: ");
+                String program = input.nextLine();
+            }else if(choose1 == 6){
+                System.out.println("Enter Section: ");
+                String sec = input.nextLine();
+            }
+        }
+
+    public static void printEntry(String snumber, String sname, String firstname, String gender, String program, String sec) {
+            System.out.println("Here's the information of the student record:");
+            System.out.println("The student number " +  snumber + "belongs to" + firstname +" "+ sname + ".He is from " + program + " under the" + sec);
+        }
+    }
+        
+       
+      
+
+    
+    
+
+
+
+    
+        
+
+
