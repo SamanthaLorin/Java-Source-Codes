@@ -1,13 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
+
 
 package com.mycompany.midtermexam01;
 import java.util.Scanner;
-/**
- *
- * @author user
- */
+
 public class MidtermExam01 {
     static String snum = "";
     static String lastname = "";
