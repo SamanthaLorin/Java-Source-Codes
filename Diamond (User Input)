@@ -1,0 +1,38 @@
+package com.mycompany.forloops;
+import java.util.Scanner;
+
+public class ForLoops {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int no=input.nextInt();
+
+        int count=1;
+        
+        // Upper part of the Diamond
+         for (int i = 1; i <= no; i++) {
+            for (int j = i; j < no; j++) {
+                System.out.print(" ");
+            }
+            for (int k = 1; k <= (2 * i - 1); k++) {
+                System.out.print("*");
+            }
+            System.out.println();  
+        }
+
+        // Lower part of the Diamond
+        for (int i = no - 1; i > 0; i--) {
+            for (int j = no; j > i; j--) {
+                System.out.print(" ");
+            }
+            for (int k = 1; k <= (2 * i - 1); k++) {
+                System.out.print("*");
+            }
+            System.out.println(); 
+        }
+    }
+}
+
+
+        
