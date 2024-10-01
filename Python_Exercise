@@ -8,7 +8,7 @@ for i in range(1, num + 1):
 print("Summation:", total)
 
 # number 2
-num1 = int(input("Enter a number: "))
+num1 = int(input("\nEnter a number: "))
 total1 = 1
 
 for j in range(1, num1 + 1):
@@ -17,11 +17,12 @@ for j in range(1, num1 + 1):
 print('Factorial: ', total1)
 
 # number 3
-start = int(input('Enter Start: '))
+start = int(input('\nEnter Start: '))
 stop = int(input('Enter Stop: '))
-
-for num in range(start, stop + 1):
+print('\nEven numbers')
+for num in range(start, stop):
     if num % 2 == 0:
+        
         print(num)
 
     
