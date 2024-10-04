@@ -1,0 +1,53 @@
+package com.mycompany.forloops;
+import java.util.Scanner;
+
+public class ForLoops {
+
+    public static void main(String[] args) {
+        // Laboratory Exercise 4
+        print();
+
+        }
+        public static void print(){
+        Scanner input = new Scanner(System.in);
+        
+        int num, num1=0,num2=1, hold_num1;
+        
+        System.out.print("\nEnter A Number: ");
+        num = input.nextInt();
+        
+        System.out.print("Fibonacci Sequence: ");
+        
+       for (int i = 1; i<=num; i++){
+            System.out.print(num1 + " ");
+            
+            hold_num1 = num1;
+            num1 = num2;
+            num2 = hold_num1 + num2;
+        }
+       Choose();
+    }
+    public static void Choose(){
+        Scanner input = new Scanner(System.in);
+        
+            System.out.print("\n \nClick [1] if you want to enter another number.\nClick [0] If you want to stop.\n=");
+            int pick = input.nextInt();
+            
+            switch(pick){
+                case 1:
+                    print();
+                break;
+                case 0:
+                    System.out.print("You Clicked [0] or STOP.");
+                break;
+                default:
+                    System.out.print("Invalid number. Please Try Again");
+                    Choose();
+            }
+        }
+       
+    }
+
+
+
+        
