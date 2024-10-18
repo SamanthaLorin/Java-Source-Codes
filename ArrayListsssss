@@ -1,0 +1,81 @@
+package com.mycompany.tigilnato;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class TigilNaTo {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        ArrayList<String> names = new ArrayList<>();
+        
+        System.out.println("ORIGINAL LIST OF NAMES [Allysa, Diane, Paula, Jayma] ");
+        
+        names.add("Allysa");
+        names.add("Diane");
+        names.add("Paula");
+        names.add("Jayma");
+        
+        // Add Name 
+        System.out.print("Enter A Name (to add): ");
+        String addName = input.nextLine();
+        
+        names.add(addName);
+        System.out.print("ArrayList after add: " + names);
+        
+        // Remove Name
+        System.out.println("\n");
+        System.out.print("Remove her (Index:)");
+        int del = input.nextInt();
+        names.remove(del);
+        
+        System.out.println(names);
+        
+        // Set Name
+        System.out.println("\n");
+        System.out.print("Replace her (Index): ");
+        int replace = input.nextInt();
+        input.nextLine();
+        
+        System.out.print("\nWith this(New Name): ");
+        String newReplace = input.nextLine();
+        
+        names.set(replace, newReplace);
+        
+        System.out.println(names);
+        
+        // Contains Name
+        System.out.println("\n");
+        System.out.print("Check her (name): ");
+        String check = input.nextLine();
+        
+        boolean checkher = names.contains(check);
+        System.out.println(checkher);
+        
+        // Find Index
+        System.out.print("\nFind her Index(Name): ");
+        String findIndex = input.nextLine();
+        
+        int index = names.indexOf(findIndex);
+        System.out.print("Her Index: " + index);
+        
+        //Find Name
+        System.out.println("\n");
+        System.out.print("Find her Name (Index): ");
+        int findName = input.nextInt();
+        
+        String name1 = names.get(findName);
+        System.out.println(name1);
+        
+        //Size of Array
+        int size = names.size();
+        System.out.println("\nWhat's the size of your arrays? :" + size);
+        
+        // Clear Name
+        System.out.println("\n");
+        names.clear();
+        System.out.println("Clear All: " + names);
+        
+        
+        
+    }
+}
