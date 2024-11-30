@@ -1,4 +1,5 @@
 +++++++++++++++++++++++ Exercise 1 +++++++++++++++++++++++++++++++++
+            (Get Average and Number of elements)
 // OUTPUT
 
 1
@@ -12,10 +13,7 @@ Number of elements above the average: 50
 // SOURCE CODE
 package com.mycompany.arrayexercises;
 import java.util.Scanner;
-/**
- *
- * @author Samantha Lorin
- */
+
 public class ArrayExercises {
 
     public static void main(String[] args) {
@@ -170,3 +168,186 @@ Index of 3: -2
         System.out.println();
     }
 }
+
++++++++++++++++++++++++ Exercise 4 +++++++++++++++++++++++++++++++++
+
+//OUTPUT
+Original Array:
+64.3 25.1 12.7 22.4 11.0 
+
+Sorted Array:
+11.0 12.7 22.4 25.1 64.3 
+
+// SOURCE CODE
+public class ArrayInPPTs {
+    
+      public static void selectionSort(double[] list) {
+        for (int i = 0; i < list.length - 1; i++) {
+            // Find the minimum in the list[i...list.length-1]
+            double currentMin = list[i];
+            int currentMinIndex = i;
+
+            for (int j = i + 1; j < list.length; j++) {
+                if (currentMin > list[j]) {
+                    currentMin = list[j];
+                    currentMinIndex = j;
+                }
+            }
+
+            // Swap list[i] with list[currentMinIndex] if necessary
+            if (currentMinIndex != i) {
+                list[currentMinIndex] = list[i];
+                list[i] = currentMin;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+    double[] list = {64.3, 25.1, 12.7, 22.4, 11.0};
+
+        System.out.println("Original Array:");
+        for (double num : list) {
+            System.out.print(num + " ");
+        }
+
+        selectionSort(list);
+
+        System.out.println("\n\nSorted Array:");
+        for (double num : list) {
+            System.out.print(num + " ");
+        }
+    }
+}
+
++++++++++++++++++++++++ Exercise 5 +++++++++++++++++++++++++++++++++
+
+// OUTPUT
+Original Array:
+7.5 3.2 5.1 9.0 2.8 
+
+Sorted Array:
+2.8 3.2 5.1 7.5 9.0 
+
+// SOURCE CODE
+
+public class ArrayInPPTs {
+    
+      /** The method for sorting the numbers */
+    public static void insertionSort(double[] list) {
+        for (int i = 1; i < list.length; i++) {
+            // Insert list[i] into a sorted sublist list[0..i-1]
+            double currentElement = list[i];
+            int k;
+            for (k = i - 1; k >= 0 && list[k] > currentElement; k--) {
+                list[k + 1] = list[k]; // Shift the elements
+            }
+            // Insert the current element into list[k + 1]
+            list[k + 1] = currentElement;
+        }
+    }
+
+    public static void main(String[] args) {
+   double[] list = {7.5, 3.2, 5.1, 9.0, 2.8};
+
+        System.out.println("Original Array:");
+        displayArray(list);
+
+        insertionSort(list);
+
+        System.out.println("\nSorted Array:");
+        displayArray(list);
+    }
+
+    /** Helper method to display the elements of an array */
+    public static void displayArray(double[] array) {
+        for (double num : array) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+}
+
++++++++++++++++++++++++ Exercise 6 +++++++++++++++++++++++++++++++++
+
+// OUTPUT
+Enter values for the array:
+
+Enter values for row 1:
+Enter value for column 1: 1
+Enter value for column 2: 2
+Enter value for column 3: 3
+Enter value for column 4: 4
+
+Enter values for row 2:
+Enter value for column 1: 9
+Enter value for column 2: 8
+Enter value for column 3: 7
+Enter value for column 4: 6
+
+Enter values for row 3:
+Enter value for column 1: 5
+Enter value for column 2: 7
+Enter value for column 3: 3
+Enter value for column 4: 2
+
+Array elements are:
+1 2 3 4 
+9 8 7 6 
+5 7 3 2 
+
+Sum of all elements is 57
+
+// SOURCE CODE
+package com.mycompany.arrayinppts;
+import java.util.Scanner;
+
+public class ArrayInPPTs {
+    
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        // Enter array values
+        int[][] m = new int[3][4];  // 3 rows, 4 columns
+        System.out.println("Enter values for the array:");
+
+        // Loop for each row
+        for (int i = 0; i < m.length; i++) {
+            System.out.println("\nEnter values for row " + (i + 1) + ":");
+            // Loop for each column in the current row
+            for (int j = 0; j < m[i].length; j++) {
+                System.out.print("Enter value for column " + (j + 1) + ": ");
+                m[i][j] = input.nextInt();  // Store the value in the array
+            }
+        }
+
+        // Display the array
+        System.out.println("\nArray elements are:");
+        for (int i = 0; i < m.length; i++) {
+            for (int j = 0; j < m[i].length; j++) {
+                System.out.print(m[i][j] + " ");
+            }
+            System.out.println();  // Move to the next line after printing each row
+        }
+
+        // Display result
+        System.out.println("\nSum of all elements is " + sum(m));
+
+        // Close the Scanner
+        input.close();
+    }
+
+    // Method to calculate the sum of all elements in the array
+    public static int sum(int[][] m) {
+        int total = 0;
+        for (int row = 0; row < m.length; row++) {
+            for (int column = 0; column < m[row].length; column++) {
+                total += m[row][column];  // Add the value to the total sum
+            }
+        }
+        return total;
+    }
+}
+
+
++++++++++++++++++++++++ Exercise 7 +++++++++++++++++++++++++++++++++
