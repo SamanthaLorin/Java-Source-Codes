@@ -1,22 +1,117 @@
- public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+// OUTPUT
+Enter Size: 5
+Enter a Number: 100
+Enter a Number: 97
+Enter a Number: 42
+Enter a Number: 15
+Enter a Number: 71
+Numbers: 100 97 42 15 71 
+----------------------------------------------------
+
+
+Enter Value to Find: 15
+15 is at index 3
+
+----------------------------------------------------
+EVEN NUMBERS:
+There are 2 even numbers in the array.
+
+----------------------------------------------------
+Enter Value that will be updated: 15
+Enter the new Value: 20
+
+(Updated) Numbers: 100 97 42 20 71 
+------------------------------------------------------------------------
+
+// SOURCE CODE
+
+package com.mycompany.arrayexercises;
+import java.util.Scanner;
+
+public class ArrayExercises {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in); 
+
+        // How many numbers will be entered
         System.out.print("Enter Size: ");
-        
         int size = input.nextInt();
         int[] numbers = new int[size];
         
         
-        //input
+        //input the numbers 
         for(int i=0; i<size; i++){
             System.out.print("Enter a Number: ");
             numbers[i] = input.nextInt();
             
         }
+        
+        // Display the numbers 
         System.out.print("Numbers: ");
          for(int i=0; i<size; i++){
              System.out.print(numbers[i] + " ");
             
         }
+         
+        // Find the index of the Value
+        System.out.println("\n----------------------------------------------------");
+        System.out.print("\n\nEnter Value to Find: ");
+        int findVal = input.nextInt();
+        boolean found = false;
         
+        for (int i = 0; i < size; i++) {
+            if (numbers[i] == findVal) {
+                System.out.println(findVal + " is at index " + i);
+                found = true;
+                break;
+             }
+        }
+
+            // Condition if the value is not in there. 
+        if (!found) {
+            System.out.println(findVal + " is not in the array.");
+        }
+        
+        // Identifies the amount of even numbers
+        System.out.println("\n----------------------------------------------------");
+        System.out.println("EVEN NUMBERS:");
+        int evenNum = 0;
+
+        for (int i = 0; i < size; i++) {
+            if (numbers[i] % 2 == 0) { // Check if number is even
+                evenNum++;
+            }
+        }
+        System.out.println("There are " + evenNum + " even numbers in the array.");
+        
+        
+        // Update into a new Value
+        System.out.println("\n----------------------------------------------------");
+        
+        System.out.print("Enter Value that will be updated: ");
+        int updVal = input.nextInt();
+        
+        System.out.print("Enter the new Value: ");
+        int newVal = input.nextInt();
+       
+         boolean updated = false;
+         
+          for (int i = 0; i < size; i++) {
+            if (numbers[i] == updVal) {
+                numbers[i] = newVal; 
+                updated = true;
+            }
+        }
+
+        if (updated) {
+                // Display the new numbers 
+            System.out.print("\n(Updated) Numbers: ");
+            for (int i = 0; i < size; i++) {
+                System.out.print(numbers[i] + " ");
+            }
+            System.out.println();
+        } else {
+            System.out.println(updVal + " is not in the array. No update was made.");
+        }
     }
 }
