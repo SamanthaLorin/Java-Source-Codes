@@ -1,0 +1,22 @@
+ public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter Size: ");
+        
+        int size = input.nextInt();
+        int[] numbers = new int[size];
+        
+        
+        //input
+        for(int i=0; i<size; i++){
+            System.out.print("Enter a Number: ");
+            numbers[i] = input.nextInt();
+            
+        }
+        System.out.print("Numbers: ");
+         for(int i=0; i<size; i++){
+             System.out.print(numbers[i] + " ");
+            
+        }
+        
+    }
+}
