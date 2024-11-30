@@ -351,3 +351,174 @@ public class ArrayInPPTs {
 
 
 +++++++++++++++++++++++ Exercise 7 +++++++++++++++++++++++++++++++++
+
+// OUTPUT
+Initial Names:
+Bob
+Linda
+Teddy
+
+What would you like to do?
+1. Add a new name
+2. Remove a name
+3. Change a name
+Enter your choice (1, 2, or 3): 3
+Enter the name to change: Teddy
+Enter the new name: Mort
+
+(Updated) Names:
+Bob
+Linda
+Mort
+
+// SOURCE CODE
+package com.mycompany.arrayinppts;
+import java.util.ArrayList;
+import java.util.Scanner;
+/**
+ *
+ * @author Samantha Lorin
+ */
+public class ArrayInPPTs {
+    
+
+    public static void main(String[] args) {
+        // Create an ArrayList and add initial names
+           ArrayList<String> names = new ArrayList<>();
+        names.add("Bob");
+        names.add("Linda");
+        names.add("Teddy");
+        
+        // Create a Scanner object for user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Output the initial list of names
+        System.out.println("Initial Names:");
+        for (String name : names) {
+            System.out.println(name);
+        }
+
+        // Ask the user for the operation to perform
+        System.out.println("\nWhat would you like to do?");
+        System.out.println("1. Add a new name");
+        System.out.println("2. Remove a name");
+        System.out.println("3. Change a name");
+        System.out.print("Enter your choice (1, 2, or 3): ");
+        int choice = scanner.nextInt();
+        scanner.nextLine();  // Consume the newline character
+        
+        switch (choice) {
+            case 1:
+                // Add a new name at a specific index
+                System.out.print("Enter the name to add: ");
+                String newName = scanner.nextLine();
+                System.out.print("Enter the index to insert the name: ");
+                int index = scanner.nextInt();
+                scanner.nextLine();  // Consume the newline character
+                names.add(index, newName);
+                break;
+
+            case 2:
+                // Remove a name
+                System.out.print("Enter the name to remove: ");
+                String nameToRemove = scanner.nextLine();
+                names.remove(nameToRemove);
+                break;
+
+            case 3:
+                // Change a name
+                System.out.print("Enter the name to change: ");
+                String oldName = scanner.nextLine();
+                System.out.print("Enter the new name: ");
+                String newNameForChange = scanner.nextLine();
+                int indexToChange = names.indexOf(oldName);
+                if (indexToChange != -1) {
+                    names.set(indexToChange, newNameForChange);
+                } else {
+                    System.out.println("Name not found.");
+                }
+                break;
+
+            default:
+                System.out.println("Invalid choice.");
+                break;
+        }
+
+        // Output the updated list of names
+        System.out.println("\n(Updated) Names:");
+        for (String name : names) {
+            System.out.println(name);
+        }
+    }
+}
+
++++++++++++++++++++++++ Exercise 8 +++++++++++++++++++++++++++++++++
+
+// OUTPUT
+Enter a Non-Negative Integer: 11
+Factorial of 11 is 39916800.
+
+// SOURCE CODE
+package com.mycompany.arrayinppts;
+import java.util.Scanner;
+/**
+ *
+ * @author Samantha Lorin
+ */
+public class ArrayInPPTs {
+    
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        System.out.print("Enter a Non-Negative Integer: ");
+        int num = input.nextInt();
+        
+        System.out.println("Factorial of " + num + " is " + factorial(num) + ".");
+    }
+    
+    public static int factorial(int num){
+        if(num==0)
+            return 1;
+        else
+            return num * factorial(num-1);
+    }
+}
+
++++++++++++++++++++++++ Exercise 9 +++++++++++++++++++++++++++++++++
+
+// OUTPUT
+Is 'moon' a palindrome? false
+Is 'noon' a palindrome? true
+Is 'a' a palindrome? true
+Is 'aba' a palindrome? true
+Is 'ab' a palindrome? false
+
+// SOURCE CODE
+package com.mycompany.arrayinppts;
+import java.util.Scanner;
+
+public class ArrayInPPTs {
+    
+    public static boolean isPalindrome(String s) {
+        // Base case: if the string length is 1 or less, it's a palindrome
+        if (s.length() <= 1) {
+            return true;
+        } // Check if the first and last characters match
+        else if (s.charAt(0) == s.charAt(s.length() - 1)) {
+            // Recursive case: check the substring excluding the first and last characters
+            return isPalindrome(s.substring(1, s.length() - 1));
+        } else {
+            return false; // If first and last characters don't match, it's not a palindrome
+        }
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println("Is 'moon' a palindrome? " + isPalindrome("moon"));
+        System.out.println("Is 'noon' a palindrome? " + isPalindrome("noon"));
+        System.out.println("Is 'a' a palindrome? " + isPalindrome("a"));
+        System.out.println("Is 'aba' a palindrome? " + isPalindrome("aba"));
+        System.out.println("Is 'ab' a palindrome? " + isPalindrome("ab"));
+    }
+}
