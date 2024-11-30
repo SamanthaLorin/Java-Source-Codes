@@ -1,0 +1,112 @@
++++++++++++++++++++++++ Exercise 1 +++++++++++++++++++++++++++++++++
+// OUTPUT
+
+1
+2
+3
+... (repeat until 100 numbers)
+
+Average is: 50.5
+Number of elements above the average: 50
+
+// SOURCE CODE
+package com.mycompany.arrayexercises;
+import java.util.Scanner;
+/**
+ *
+ * @author Samantha Lorin
+ */
+public class ArrayExercises {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in); 
+        final int NUMBER_OF_ELEMENTS = 100;
+        double[] numbers = new double[NUMBER_OF_ELEMENTS];
+        double sum = 0;
+
+        // Read numbers and calculate the sum
+        for (int i = 0; i < NUMBER_OF_ELEMENTS; i++) {
+            System.out.print("Enter a new number: ");
+            numbers[i] = input.nextDouble();
+            sum += numbers[i];
+        }
+
+        // Calculate the average
+        double ave = sum / NUMBER_OF_ELEMENTS;
+
+        // Count numbers above the average
+        int count = 0;
+        for (int i = 0; i < NUMBER_OF_ELEMENTS; i++) {
+            if (numbers[i] > ave) {
+                count++;
+            }
+        }
+
+        // Output the results
+        System.out.println("Average is: " + ave);
+        System.out.println("Number of elements above the average: " + count);
+    }
+}
+
++++++++++++++++++++++++ Exercise 2 +++++++++++++++++++++++++++++++++
+
+// OUTPUT
+----- Passing Array to Method -----
+x is 1
+y[0] is 5555
+
+----- Returning Array to Method -----
+Original Array: 1 2 3 4 5 
+Reversed Array: 5 4 3 2 1 
+
+// SOURCE CODE
+
+package com.mycompany.arrayinppts;
+public class ArrayInPPTs {
+
+    public static void main(String[] args) {
+        
+        // PASSING ARRAY TO METHOD
+        System.out.println("----- Passing Array to Method -----");
+        int x = 1;
+        int[] y = new int[10];
+
+        m(x, y);
+
+        System.out.println("x is " + x);       // Outputs: x is 1
+        System.out.println("y[0] is " + y[0]); // Outputs: y[0] is 5555
+
+        // RETURNING ARRAY TO METHOD
+        System.out.println("\n----- Returning Array to Method -----");
+        int[] original = {1, 2, 3, 4, 5};
+        int[] reversed = reverse(original);
+
+        System.out.print("Original Array: ");
+        for (int num : original) {
+            System.out.print(num + " ");
+        }
+
+        System.out.println();
+
+        System.out.print("Reversed Array: ");
+        for (int num : reversed) {
+            System.out.print(num + " ");
+        }
+    }
+
+    // Method to demonstrate passing an array to a method
+    public static void m(int number, int[] numbers) {
+        number = 1001;       // Does not affect the original `x`
+        numbers[0] = 5555;   // Modifies the first element of array `y`
+    }
+
+    // Method to demonstrate returning an array from a method
+    public static int[] reverse(int[] list) {
+        int[] result = new int[list.length];
+
+        for (int i = 0, j = result.length - 1; i < list.length; i++, j--) {
+            result[j] = list[i];
+        }
+        return result;
+    }
+}
