@@ -1,0 +1,52 @@
+
+package com.mycompany.hidalgo_com241;
+
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Hidalgo_COM241 {
+
+    public static void main(String[] args) {
+        // Bubble Sort 
+        Scanner input = new Scanner(System.in);
+        
+        // Get the size of the array from user input
+        System.out.print("Enter Size: ");
+        int size = input.nextInt();
+        
+        int[] array = new int[size];
+        
+        // Input array elements
+        for (int i = 0; i < size; i++) {
+            System.out.print("Enter Element: ");
+            array[i] = input.nextInt();
+        }
+        
+        // Output: Print the original array
+        System.out.print("Array Elements: ");
+        for (int element : array) {
+            System.out.print(element + " ");  // Printing each element
+        }
+        
+        // Bubble Sort implementation
+        int temp;
+        for (int i = 0; i < size - 1; i++) {
+            for (int j = 0; j < size - 1 - i; j++) {
+                if (array[j] > array[j + 1]) {
+                    // Swap the elements
+                    temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
+        }
+        
+        Arrays.sort(array);
+        
+        // Output: Print the sorted array
+        System.out.print("\nSorted Array: ");
+        for (int element : array) {
+            System.out.print(element + " ");  // Printing each element after sorting
+        }
+    }
+}
