@@ -1,0 +1,313 @@
+✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ Exercise 1 ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦
+
+(1-Dimensional Array)
+// OUTPUT
+Enter Size: 5
+Enter a Number: 2
+Enter a Number: 4
+Enter a Number: 6
+Enter a Number: 8
+Enter a Number: 10
+Numbers: 2 4 6 8 10 
+
+// SOURCE CODE
+package com.mycompany.arrayinppts;
+import java.util.Scanner;
+public class ArrayInPPTs {
+    
+
+    public static void main(String[] args) {
+            Scanner input = new Scanner(System.in);
+            System.out.print("Enter Size: ");
+            int size = input.nextInt();
+            int[] numbers = new int[size];
+            
+            // input 
+            for(int i=0; i<size; i++){
+                System.out.print("Enter a Number: ");
+                numbers[i] = input.nextInt();
+            }
+            
+            // output (for-each loop)
+            System.out.print("Numbers: ");
+            for(int num: numbers){
+                System.out.print(num + " ");
+            }
+    }
+}
+
+✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ Exercise 2 ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦
+(1-Dimension Array with Methods)
+
+// OUTPUT
+Enter Size: 5
+Enter Value: 10
+Enter Value: 20
+Enter Value: 30
+Enter Value: 40
+Enter Value: 50
+
+Array Values: 10 20 30 40 50 
+
+// SOURCE CODE
+package com.mycompany.arrayinppts;
+import java.util.Scanner;
+import java.util.*;
+public class ArrayInPPTs {
+
+        public static void input(int[] array, int size){
+            Scanner input = new Scanner(System.in);
+            for(int i = 0; i<size; i++){
+                System.out.print("Enter Value: ");
+                array[i] = input.nextInt();
+            }
+        }
+        
+        public static void output(int [] array, int size){
+            System.out.print("\n Array Values: ");
+            for(int value:array){
+                System.out.print(value + " ");
+            }
+}
+
+    public static void main(String[] args) {
+            Scanner input = new Scanner(System.in);
+            System.out.print("Enter Size: ");
+            int size = input.nextInt();
+            int[] array = new int[size];
+            input(array, size);
+            output(array,size);  
+    }
+}
+
+✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ Exercise 3 ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦
+(2-Dimensional Array)
+
+// OUTPUT
+Enter the number of rows: 2
+Enter the number of columns: 2
+Enter the elements of the array:
+Enter a Number: [0][0]: 1
+Enter a Number: [0][1]: 2
+Enter a Number: [1][0]: 3
+Enter a Number: [1][1]: 4
+Array values:
+1 2 
+3 4 
+
+// SOURCE CODE
+package com.mycompany.arrayinppts;
+import java.util.Scanner;
+import java.util.*;
+public class ArrayInPPTs {
+
+     public static void input(int[][] array, int rows, int cols) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the elements of the array:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                System.out.print("Enter a Number: [" + i + "][" + j + "]: ");
+                array[i][j] = scanner.nextInt();
+            }
+        }
+    }
+    public static void output(int[][] array, int rows, int cols) {
+        System.out.println("Array values:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                System.out.print(array[i][j] + " ");
+            }
+            System.out.println(); 
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of rows: ");
+        int rows = scanner.nextInt();
+
+        System.out.print("Enter the number of columns: ");
+        int cols = scanner.nextInt();
+
+        int[][] array = new int[rows][cols];
+
+        
+        input(array, rows, cols);
+        output(array, rows, cols);
+    }
+}
+
+✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ Exercise 4 ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦
+(ArrayList)
+
+// OUTPUT
+How many items to add: 3
+Enter Name: Gean
+Enter Name: Tina
+Enter Name: Louise
+Names: 
+Gean
+Tina
+Louise
+
+// SOURCE CODE
+package com.mycompany.arrayinppts;
+import java.util.Scanner;
+import java.util.*;
+public class ArrayInPPTs {
+
+
+    public static void main(String[] args) {
+        
+        // input
+        ArrayList<String>names = new ArrayList<>();
+        
+        Scanner input = new Scanner(System.in);
+        
+        System.out.print("How many items to add: ");
+        int n = input.nextInt();
+        
+        input.nextLine();
+        
+        for(int i=0; i<n; i++){
+            System.out.print("Enter Name: ");
+            names.add(input.nextLine());
+        }
+        System.out.println("Names: ");
+                for(String name: names){
+                    System.out.println(name);
+                }
+        }
+    }
+    
+✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ Exercise 5 ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦
+(Count Occurrence)
+
+// OUTPUT
+
+Enter Text: Hello Love, Goodbye
+Count: e
+e occurs 3 times
+
+// SOURCE CODE
+package com.mycompany.arrayinppts;
+import java.util.Scanner;
+public class ArrayInPPTs {
+    
+    public static void count(String text, char letter){
+        int n = 0;
+        for(int i=0; i<text.length(); i++){
+            if(text.charAt(i) == letter){
+                n++;
+            }
+        }
+        System.out.println(letter + " occurs " + n + " times");
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter Text: ");
+        String text = input.nextLine();
+        
+        System.out.print("Count: ");
+        char letter = input.next().charAt(0);
+        
+        count(text, letter);
+        
+                
+        }
+    }
+
+✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ Exercise 6 ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦
+(Get Factor)
+
+// OUTPUT
+Enter a Number: 12
+Factors: 1 2 3 4 6
+
+// SOURCE CODE
+package com.mycompany.arrayinppts;
+import java.util.Scanner;
+public class ArrayInPPTs {
+    
+    public static void getFactors(int num){
+        System.out.print("Factors: ");
+        for(int i=1; i<num; i++){
+            if(num % i == 0){
+                System.out.print(i +" ");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter a Number: ");
+        int num = input.nextInt();
+        getFactors(num);
+        }
+    }
+
+✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ Exercise 7 ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦
+(Recursion)
+
+// OUTPUT
+Enter a number: 5
+Sum: 15
+
+// SOURCE CODE
+package com.mycompany.arrayinppts;
+import java.util.Scanner;
+public class ArrayInPPTs {
+    
+    public static int add(int num){
+        if(num > 1){
+            return num + add(num-1);
+        }
+        else{
+            return num;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int num = input.nextInt();
+        
+        System.out.print("Sum " + add(num));
+        }
+    }
+    
+✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ Exercise 8 ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦
+  (Update Character)
+
+// OUTPUT
+Enter Text: gOOD MORNINg
+Update: g
+New Value: G
+New Text: GOOD MORNING
+
+  // SOURCE CODE
+package com.mycompany.arrayinppts;
+import java.util.Scanner;
+public class ArrayInPPTs {
+    
+    public static void update(String text, char oldChar, char newChar){
+        System.out.println("New Text: " + text.replace(oldChar, newChar));
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter Text: ");
+        String text = input.nextLine();
+        
+        System.out.print("Update: ");
+        char oldChar = input.next().charAt(0);
+        
+        System.out.print("New Value: ");
+        char newChar = input.next().charAt(0);
+        
+        update(text, oldChar, newChar);
+        }
+    }
