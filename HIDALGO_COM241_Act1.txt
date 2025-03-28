@@ -1,0 +1,21 @@
+package com.mycompany.student;
+
+public class Student {
+    String name , program, course;
+    int age, yearlevel;
+
+    void displayStudentInfo(){
+            System.out.println("Name: " + name + "\n Age: " + age + "\n Year Level: " + yearlevel + "\n Program: " + program + "\n Course: " + course);
+    }
+
+    public static void main(String[] args) {
+        Student students = new Student();
+        students.name = "Samantha Lorin G. Hidalgo";
+        students.age = 16;
+        students.yearlevel = 1;
+        students.program = "Bachelor of Science in Computer Science with Specialization in Machine Learning";
+        students.course = "Object-Oriented Programming";
+        
+        students.displayStudentInfo();
+    }
+}
