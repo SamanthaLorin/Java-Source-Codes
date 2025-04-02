@@ -1,0 +1,22 @@
+package com.mycompany.javaacts;
+
+class TrainLine{
+        String lineName;
+
+        public TrainLine() {
+            lineName = "Unknown Train Line";
+        }
+
+        public void displayLine() {
+            System.out.println("Train Line: " + lineName);
+        }
+    
+    }
+
+public class JavaActs {
+
+    public static void main(String[] args) {
+        TrainLine train = new TrainLine();
+        train.displayLine();
+    }
+}
