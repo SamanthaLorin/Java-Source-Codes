@@ -1,0 +1,93 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
+ */
+
+package com.mycompany.act02_1;
+import java.util.Scanner;
+/**
+ *
+ * @author NUD-Student
+ */
+
+class player{
+   private String charName;
+   private String classType;
+   private int lvl;
+    
+     player(String charName, String classType, int lvl) {
+        this.charName = charName;
+        this.classType = classType;
+        this.lvl = lvl;
+    }
+    
+    // RETURN 
+    public String getcharName(){
+        return charName;
+    }
+    
+    public String getclassType(){
+        return classType;
+    }
+    
+     public int lvl(){
+        return lvl;
+    }
+    
+     // SET
+    public void setcharName(String charName){
+         this.charName = charName;
+    }
+    
+    public void setclassType(){
+        this.classType = classType;
+    }
+    
+    public void setlvl(){
+        this.lvl = lvl;
+    }
+    
+    public void displayInfo(){
+        System.out.print("Character Created!");
+        System.out.println("\nName: " + charName + 
+                            "\nClass: " + classType + 
+                                "\nLevel: " + lvl);
+    }
+}
+   
+public class Act02_1 {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+     
+        System.out.print("Enter Character Name: ");
+        String charName = input.nextLine();
+        
+        System.out.print("Enter class type (Warrior/Mage/Archer): ");
+        String classType = input.nextLine();
+        
+        System.out.print("Enter initial level: ");
+        int lvl = input.nextInt();
+
+     
+        player myPlayer = new player(charName, classType, lvl);
+        myPlayer. displayInfo();
+        
+        System.out.print("\nDo you want to level up? (y/n): ");
+        char lvlUp = input.next().charAt(0);
+        
+        if(lvlUp == 'y'){
+            lvl++;
+            System.out.println("Congratulations! " + charName + " has leveled up to Level " + lvl);
+            
+             System.out.println("\nName: " + charName + 
+                                "\nClass: " + classType + 
+                                "\nLevel: " + lvl);
+        }
+        else{
+          System.exit(0);  
+        }
+    }
+    }
+
+
