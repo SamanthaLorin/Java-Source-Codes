@@ -1,52 +1,127 @@
-package com.mycompany.javaacts;
+package com.mycompany.javaacts2;
+import java.util.Scanner;
 
-class TrainLine{
-        String lineName;
+class Player {
+    private String charName;
+    private String classType;
+    private int level;
 
-        public TrainLine() {
-            lineName = "Unknown Train Line";
-        }
+    // Constructor
+    Player(String charName, String classType, int level) {
+        this.charName = charName;
+        this.classType = classType;
+        this.level = level;
+    }
 
-        public void displayLine() {
-            System.out.println("Train Line: " + lineName);
-        }
+    // Getters
+    public String getCharName() {
+        return charName;
+    }
+
+    public String getClassType() {
+        return classType;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    // Setters
+    public void setCharName(String charName) {
+        this.charName = charName;
+    }
+
+    public void setClassType(String classType) {
+        this.classType = classType;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    // Display Info
+    public void displayInfo() {
+        System.out.println("\nCharacter Created!");
+        System.out.println("Name: " + charName +
+                           "\nClass: " + classType +
+                           "\nLevel: " + level);
+    }
     
+     public void displayUpdatedInfo() {
+        System.out.println("\nUpdated Character Info:");
+        System.out.println("Name: " + charName + ",");
+        System.out.println("Class: " + classType + ",");
+        System.out.println("Level: " + level);
     }
+}
+   
 
-public class JavaActs {
+
+public class JavaActs2 {
 
     public static void main(String[] args) {
-        TrainLine train = new TrainLine();
-        train.displayLine();
+         getInfo();
+    }
+
+    static void getInfo() {
+        Scanner input = new Scanner(System.in);
+
+        // Get character name
+        System.out.print("Enter Character Name: ");
+        String charName = input.nextLine();
+
+        // Validate class type
+        String classType;
+        while (true) {
+            System.out.print("Enter class type (Warrior/Mage/Archer): ");
+            classType = input.nextLine();
+
+            if (classType.equalsIgnoreCase("Warrior") ||
+                classType.equalsIgnoreCase("Mage") ||
+                classType.equalsIgnoreCase("Archer")) {
+                classType = classType.substring(0, 1).toUpperCase() + classType.substring(1).toLowerCase();
+                break;
+            } else {
+                System.out.println("Invalid class type. Please pick (Warrior, Mage, or Archer)");
+            }
+        }
+
+        System.out.print("Enter initial level: ");
+        int level = input.nextInt();
+        input.nextLine(); // eat leftover newline
+
+        Player myPlayer = new Player(charName, classType, level);
+        myPlayer.displayInfo();
+
+        System.out.print("\nDo you want to level up? (y/n): ");
+        String lvlUp = input.nextLine().toLowerCase();
+
+        if (lvlUp.equalsIgnoreCase("y") || lvlUp.equalsIgnoreCase("yes")) {
+            level++;
+            myPlayer.setLevel(level);
+            System.out.println("\nCongratulations! " + charName + " has leveled up to Level " + level + "!");
+            myPlayer.displayUpdatedInfo();
+        } else {
+            System.exit(0);
+        }
     }
 }
 
-OUTPUT:
-Train Line: Unknown Train Line
+// OUTPUT 
+Enter Character Name: Jeon Wonwoo
+Enter class type (Warrior/Mage/Archer): Archer
+Enter initial level: 1
 
-------------------
+Character Created!
+Name: Jeon Wonwoo
+Class: Archer
+Level: 1
 
-package com.mycompany.javaacts;
+Do you want to level up? (y/n): yes
 
-class Person {
-    private String name;
+Congratulations! Jeon Wonwoo has leveled up to Level 2!
 
-    public void setName(String n) {
-        name = n;
-    }
-
-    public String getName() {
-        return name;
-    }
-}
-
-public class JavaActs {
-    public static void main(String[] args) {
-        Person p = new Person();
-        p.setName("Alice");
-        System.out.println("Name: " + p.getName());
-    }
-}
-
-OUTPUT:
-Name: Alice
+Updated Character Info:
+Name: Jeon Wonwoo,
+Class: Archer,
+Level: 2
