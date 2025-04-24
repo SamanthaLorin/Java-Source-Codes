@@ -1,0 +1,71 @@
+// Base class (Parent) - demonstrating encapsulation
+class Animal {
+    private String name; // private = encapsulated
+    private int age;
+
+    // Constructor
+    public Animal(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Public getters/setters = controlled access
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        if (age >= 0) {
+            this.age = age;
+        } else {
+            System.out.println("Age can't be negative, bruh.");
+        }
+    }
+
+    public void speak() {
+        System.out.println("Some generic animal noise.");
+    }
+}
+
+// Derived class (Child) - demonstrating inheritance
+class Dog extends Animal {
+    private String breed;
+
+    public Dog(String name, int age, String breed) {
+        super(name, age); // calling parent constructor
+        this.breed = breed;
+    }
+
+    public String getBreed() {
+        return breed;
+    }
+
+    public void setBreed(String breed) {
+        this.breed = breed;
+    }
+
+    // Method override - polymorphism sneaking in
+    @Override
+    public void speak() {
+        System.out.println(getName() + " says: Woof! I’m a " + breed);
+    }
+}
+
+// Runner class
+public class Main {
+    public static void main(String[] args) {
+        Dog myDog = new Dog("Rex", 4, "Golden Retriever");
+        myDog.speak(); // Overridden method
+        myDog.setAge(-2); // Attempt to break logic, caught by encapsulation
+        myDog.setAge(5);
+        System.out.println(myDog.getName() + " is " + myDog.getAge() + " years old.");
+    }
+}
