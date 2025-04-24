@@ -1,0 +1,110 @@
+// Interface - abilities every character should have
+interface CombatActions {
+    void attack();
+    void defend();
+}
+
+// Abstract base class - can't be instantiated directly
+abstract class GameCharacter implements CombatActions {
+    private String name;
+    private int level;
+    private int health;
+
+    public GameCharacter(String name, int level, int health) {
+        this.name = name;
+        this.level = level;
+        this.health = health;
+    }
+
+    // Encapsulation with getters and setters
+    public String getName() {
+        return name;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void takeDamage(int damage) {
+        health -= damage;
+        if (health < 0) health = 0;
+        System.out.println(name + " takes " + damage + " damage. Health now: " + health);
+    }
+
+    public abstract void specialMove(); // Force child classes to implement
+}
+
+// Subclass: Warrior
+class Warrior extends GameCharacter {
+    private String weapon;
+
+    public Warrior(String name, int level, int health, String weapon) {
+        super(name, level, health);
+        this.weapon = weapon;
+    }
+
+    public void attack() {
+        System.out.println(getName() + " swings their " + weapon + " with brute force!");
+    }
+
+    public void defend() {
+        System.out.println(getName() + " blocks the attack with a shield.");
+    }
+
+    public void specialMove() {
+        System.out.println(getName() + " uses 'Whirlwind Slash' — devastating spin attack!");
+    }
+}
+
+// Subclass: Mage
+class Mage extends GameCharacter {
+    private int mana;
+
+    public Mage(String name, int level, int health, int mana) {
+        super(name, level, health);
+        this.mana = mana;
+    }
+
+    public void attack() {
+        if (mana >= 10) {
+            mana -= 10;
+            System.out.println(getName() + " casts Fireball! Mana left: " + mana);
+        } else {
+            System.out.println(getName() + " tries to cast Fireball, but not enough mana!");
+        }
+    }
+
+    public void defend() {
+        System.out.println(getName() + " raises a magic barrier.");
+    }
+
+    public void specialMove() {
+        if (mana >= 25) {
+            mana -= 25;
+            System.out.println(getName() + " unleashes 'Meteor Shower'! Mana left: " + mana);
+        } else {
+            System.out.println(getName() + " tries to use Meteor Shower, but mana's too low.");
+        }
+    }
+}
+
+// Main class to run the game
+public class Game {
+    public static void main(String[] args) {
+        GameCharacter warrior = new Warrior("Thorne", 10, 120, "Greatsword");
+        GameCharacter mage = new Mage("Elandra", 12, 80, 40);
+
+        warrior.attack();
+        mage.attack();
+
+        warrior.defend();
+        mage.specialMove();
+
+        warrior.takeDamage(30);
+        mage.takeDamage(50);
+    }
+}
