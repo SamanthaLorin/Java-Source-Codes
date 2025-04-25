@@ -88,3 +88,133 @@ public class VehicleSummary {
         truck.printSummary();
     }
 }
+
+-----------
+
+package com.mycompany.main;
+import java.util.Scanner;
+
+
+class Vehicle{
+    private String brand, model;
+    private double fuel, distance;
+
+
+// CONSTRUCTOR 
+ public Vehicle(String brand, String model, double fuel, double distance){
+        this.brand = brand;
+        this.model = model;
+        this.distance = distance;
+        this.fuel = fuel;
+        }
+
+ // GETTER
+    public String getBrand(){
+    return brand;
+    }
+    
+    public String getModel(){
+    return model;
+    }
+    
+    public double getDistance(){
+        return distance;
+    }
+    
+    public double getFuel(){
+        return fuel;
+    }
+
+ // INHERITANCE 
+class Car extends Vehicle{
+    public Car(String brand, String model, double distance, double fuel){
+        super(brand, model, distance, fuel);
+    }
+            
+    public double CalculateFuel(){
+        return getDistance();
+    }
+}
+
+class Bike extends Vehicle{
+     public Bike(String brand, String model, double distance, double fuel){
+        super(brand, model, distance, fuel);
+    }
+            
+    public double CalculateFuel(){
+        return getDistance();
+    }
+}
+
+class Truck extends Vehicle{
+     public Truck(String brand, String model, double distance, double fuel){
+        super(brand, model, distance, fuel);
+    }
+            
+    public double CalculateFuel(){
+        return getDistance();
+    }
+}
+
+public void VehicleSummary(){
+    System.out.println("--Vehicle Summary--");
+    
+    System.out.println("Vehicle: " + brand + model);
+    System.out.println("Distance Traveled:" + distance + "km");
+    //System.out.println("Fuel Efficiency: " + %2 fFuel);
+    
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        // User Input for CAR
+        System.out.println("Enter details for Car: ");
+        
+        System.out.print("Brand: ");
+        String brandCar = input.nextLine();
+        
+        System.out.print("Model: ");
+        String modelCar = input.nextLine();
+        
+        System.out.print("Distance Traveled (km): ");
+        int kmCar = input.nextInt();
+        
+        System.out.print("Fuel Used: ");
+        int fuelCar = input.nextInt();
+        
+        // User Input for BIKE
+        System.out.println("\nEnter details for Bike: ");
+        
+        System.out.print("Brand: ");
+        String brandBike = input.nextLine();
+        
+        System.out.print("Model: ");
+        String modelBike = input.nextLine();
+        
+        System.out.print("Distance Traveled (km): ");
+        int kmBike = input.nextInt();
+        
+        System.out.print("Fuel Used: ");
+        int fuelBike = input.nextInt();
+        
+        // User Input for TRUCK:
+        System.out.println("\nEnter details for Bike: ");
+        
+        System.out.print("Brand: ");
+        String brandTruck = input.nextLine();
+        
+        System.out.print("Model: ");
+        String modelTruck = input.nextLine();
+        
+        System.out.print("Distance Traveled (km): ");
+        int kmTruck = input.nextInt();
+        
+        System.out.print("Fuel Used: ");
+        int fuelTruck = input.nextInt();
+        
+    }
+}
+}
