@@ -1,4 +1,15 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.act4;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+/**
+ *
+ * @author Samantha Lorin
+ */
 
 class Vehicle {
     private String brand, model;
@@ -34,8 +45,10 @@ class Car extends Vehicle {
 }
 
 class Bike extends Vehicle {
-    public Bike(String brand, String model, double distance, double fuel) {
-        super(brand, model, distance, fuel);
+    private static final double FUEL_USED = 1.5; 
+
+    public Bike(String brand, String model, double distance) {
+        super(brand, model, distance, FUEL_USED);
     }
 }
 
@@ -45,30 +58,51 @@ class Truck extends Vehicle {
     }
 }
 
-public class Main {
+
+public class Act4 {
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+         Scanner input = new Scanner(System.in);
+        List<Vehicle> vehicles = new ArrayList<>();
 
-        Vehicle car = inputVehicle(input, "Car", Car.class);
-        Vehicle bike = inputVehicle(input, "Bike", Bike.class);
-        Vehicle truck = inputVehicle(input, "Truck", Truck.class);
-
-        System.out.println("\n--- Vehicle Summary ---");
-        car.VehicleSummary();
-        bike.VehicleSummary();
-        truck.VehicleSummary();
-    }
-
-    static Vehicle inputVehicle(Scanner input, String type, Class Vehicle) {
-        System.out.println("\nEnter details for " + type + ":");
+        // Input for Car
+        System.out.println("\nEnter details for a Car:");
         System.out.print("Brand: ");
-        String brand = input.next();
+        String carBrand = input.nextLine();
         System.out.print("Model: ");
-        String model = input.next();
+        String carModel = input.nextLine();
         System.out.print("Distance Traveled (km): ");
-        double distance = input.nextDouble();
+        double carDistance = input.nextDouble();
         System.out.print("Fuel Used (liters): ");
-        double fuel = input.nextDouble();
-           }
+        double carFuel = input.nextDouble();
+        input.nextLine(); // Consume newline
+        vehicles.add(new Car(carBrand, carModel, carDistance, carFuel));
+
+        // Input for Bike
+        System.out.println("\nEnter details for a Bike:");
+        System.out.print("Brand: ");
+        String bikeBrand = input.nextLine();
+        System.out.print("Model: ");
+        String bikeModel = input.nextLine();
+        System.out.print("Distance Traveled (km): ");
+        double bikeDistance = input.nextDouble();
+        vehicles.add(new Bike(bikeBrand, bikeModel, bikeDistance));
+
+        // Input for Truck
+        System.out.println("\nEnter details for a Truck:");
+        System.out.print("Brand: ");
+        String truckBrand = input.nextLine();
+        System.out.print("Model: ");
+        String truckModel = input.nextLine();
+        System.out.print("Distance Traveled (km): ");
+        double truckDistance = input.nextDouble();
+        System.out.print("Fuel Used (liters): ");
+        double truckFuel = input.nextDouble();
+        vehicles.add(new Truck(truckBrand, truckModel, truckDistance, truckFuel));
+        
+        System.out.println("\n--- Vehicle Summary ---");
+        for (Vehicle vehicle : vehicles) {
+            vehicle.VehicleSummary();
+        }
+    }
 }
