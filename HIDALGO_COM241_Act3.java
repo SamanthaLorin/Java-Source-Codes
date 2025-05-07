@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package com.mycompany.javaact;
 import static com.mycompany.javaact.JavaAct.DisplayFirst;
 import java.util.Scanner;
@@ -41,25 +37,34 @@ class Calculator {
         System.out.print("Enter your Choice: ");
         int choice = input.nextInt();
         
-        if(choice == 1){
-            add();
+          boolean validChoice = true;
+        
+          switch(choice){
+            case 1:
+                add();
+                break;
+            case 2:
+                subtract();
+                break;
+            case 3:
+                multiply();
+                break;
+            case 4:
+                divide();
+                break;
+            case 5:
+                handleSecretOperation(input);
+                return; // handleSecretOperation calls continuePrompt internally
+            default:
+                System.out.println("Invalid choice. Please try again.");
+                validChoice = false;
+                break;
         }
-        if(choice == 2){
-            subtract();
-        }
-        if(choice == 3){
-            multiply();
-        }
-        if(choice == 4){
-            divide();
-        }
-        if (choice == 5){
-            handleSecretOperation(input);
-        }
-        else{
+        if (validChoice) {
+            continuePrompt();
+        } else {
             displayMenu();
         }
-        continuePrompt();
     }
 
     private void handleSecretOperation(Scanner input) {
@@ -77,6 +82,7 @@ class Calculator {
             System.out.println("Access Denied! We are proceeding with basic operations only!");
         }
     }
+    
 
     private void continuePrompt() {
         Scanner input = new Scanner(System.in);
@@ -94,19 +100,16 @@ class Calculator {
     private void add() {
         int sum = fNum + sNum;
         System.out.println("Result of " + fNum + " + " + sNum + " = " + sum);
-        continuePrompt();
     }
 
     private void subtract() {
         int diff = fNum - sNum;
         System.out.println("Result of " + fNum + " - " + sNum + " = " + diff);
-        continuePrompt();
     }
 
     private void multiply() {
         int prod = fNum * sNum;
         System.out.println("Result of " + fNum + " * " + sNum + " = " + prod);
-        continuePrompt();
     }
 
     private void divide() {
@@ -129,7 +132,7 @@ class Calculator {
 public class JavaAct {
 
     public static void main(String[] args) {
-          Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         System.out.println("Advanced Calculator");
         DisplayFirst();
 
