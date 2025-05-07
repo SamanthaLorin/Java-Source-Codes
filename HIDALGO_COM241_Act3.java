@@ -119,7 +119,6 @@ class Calculator {
             double quot = (double) fNum / sNum;
             System.out.println("Result of " + fNum + " / " + sNum + " = " + quot);
         }
-        continuePrompt();
     }
 
     private void power() {
