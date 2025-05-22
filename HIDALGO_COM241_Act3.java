@@ -4,20 +4,20 @@ import java.util.Scanner;
 
 class Calculator {
     private int fNum, sNum;
-    private int passCode;
-    private boolean isSecretUnlocked = false;
+    private String passCode;
+    private boolean isSecretUnlocked;
 
     public Calculator(int fNum, int sNum) {
         this.fNum = fNum;
         this.sNum = sNum;
     }
 
-    public void setPassCode(int passCode) {
+    public void setPassCode(String passCode) {
         this.passCode = passCode;
     }
 
-    public boolean unlockSecret(int attempt) {
-        if (attempt == passCode) {
+    public boolean unlockSecret(String attempt) {
+        if (attempt.equals(passCode)) {
             isSecretUnlocked = true;
             return true;
         }
@@ -39,47 +39,46 @@ class Calculator {
         
           boolean validChoice = true;
         
-          switch(choice){
-            case 1:
-                add();
-                break;
-            case 2:
-                subtract();
-                break;
-            case 3:
-                multiply();
-                break;
-            case 4:
-                divide();
-                break;
-            case 5:
-                handleSecretOperation(input);
-                return; // handleSecretOperation calls continuePrompt internally
-            default:
-                System.out.println("Invalid choice. Please try again.");
-                validChoice = false;
-                break;
-        }
+        if (choice == 1) {
+            add();
+        } else if (choice == 2) {
+            subtract();
+        } else if (choice == 3) {
+            multiply();
+        } else if (choice == 4) {
+            divide();
+        } else if (choice == 5) {
+            handleSecretOperation(input);
+            return;
+        } else {
+            System.out.println("Invalid choice. Please try again.");
+            validChoice = false;
+}
+
         if (validChoice) {
             continuePrompt();
         } else {
             displayMenu();
         }
-    }
+       }
+    
+    
 
     private void handleSecretOperation(Scanner input) {
-        System.out.print("Set your password: ");
-        int setPass = input.nextInt();
         input.nextLine();
+        System.out.print("Set your password: ");
+        String setPass = input.nextLine();
         setPassCode(setPass);
 
         System.out.print("Enter password to unlock the secret operation: ");
-        int attempt = input.nextInt();
+        String attempt = input.nextLine();
 
         if (unlockSecret(attempt)) {
             power();
+            continuePrompt();
         } else {
             System.out.println("Access Denied! We are proceeding with basic operations only!");
+            continuePrompt();
         }
     }
     
