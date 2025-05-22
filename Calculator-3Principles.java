@@ -110,7 +110,7 @@ class BasicCalculator {
             String response = input.nextLine().toLowerCase();
 
         if (response.equals("y") || response.equals("yes")) {
-            DisplayFirst();
+            DisplayFirst(); // sa programmiz nagkakaerror dito Main.DisplayFirst(); dapat.
             displayMenu();
         } else {
             System.exit(0);
