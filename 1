@@ -1,0 +1,76 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
+ */
+
+package com.mycompany.main00;
+import java.util.Scanner;
+
+class PersonalInfo{
+	protected String name, address;
+
+	// Constructor 
+	public PersonalInfo(String name, String address){
+	this.name = name;
+	this.address = address; 
+}
+
+	// Getter
+	public String getName(String name){
+	return name;
+}
+	// Getter
+	public String getAddress(String address){
+	return address; 
+}      
+        public void continuePrompt(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Would you like to add more?");
+	String choose = input.nextLine();
+
+	if(choose.equals('y') || choose.equals("Yes")){
+	} 
+        else{
+            System.exit(0);
+        }
+}
+        public void DisplayInfo(){
+	System.out.println("Personal Information");
+	System.out.println("Name: " + name);
+	System.out.println("Address: " + address);
+	continuePrompt();
+}
+
+       
+        
+class Name extends PersonalInfo{
+      public Name(String Name) {
+    }
+      
+class Address extends PersonalInfo{
+      public Address(String address) {
+    }
+
+}
+
+
+public class Main00 {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+	DisplayFirst();
+
+	}
+
+	static void DisplayFirst(){
+        Scanner input = new Scanner(System.in);
+	System.out.print("Enter your name: ");
+	String name = input.nextLine();
+
+	System.out.print("Enter your address: ");
+	String address = input.nextLine();
+        }
+}
+}
+
+
