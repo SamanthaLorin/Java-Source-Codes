@@ -22,9 +22,12 @@ class Vehicle {
         this.fuel = fuel;
     }
 
-    public String getBrand() { return brand; }
-    public String getModel() { return model; }
-    public double getDistance() { return distance; }
+    public String getBrand() { 
+        return brand; }
+    public String getModel() { 
+        return model; }
+    public double getDistance() {
+        return distance; }
     public double getFuel() { return fuel; }
 
     public double Formula() {
