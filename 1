@@ -1,12 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
- */
+
 
 package com.mycompany.main00;
+import static com.mycompany.main00.Main00.DisplayFirst;
 import java.util.Scanner;
 
-class PersonalInfo{
+    class PersonalInfo{
 	protected String name, address;
 
 	// Constructor 
@@ -25,10 +23,12 @@ class PersonalInfo{
 }      
         public void continuePrompt(){
         Scanner input = new Scanner(System.in);
-        System.out.println("Would you like to add more?");
-	String choose = input.nextLine();
+        System.out.println("Would you like to add more? (y/Yes to continue)");
+        String choose = input.nextLine();
 
-	if(choose.equals('y') || choose.equals("Yes")){
+        if (choose.equals("y") || choose.equals("Yes")) {
+            Main00.DisplayFirst();
+            continuePrompt();
 	} 
         else{
             System.exit(0);
@@ -40,25 +40,29 @@ class PersonalInfo{
 	System.out.println("Address: " + address);
 	continuePrompt();
 }
-
-       
-        
-class Name extends PersonalInfo{
-      public Name(String Name) {
     }
+
+class Name extends PersonalInfo{
+        public Name(String name, String address) {
+        super(name, address);
+    }
+}
       
 class Address extends PersonalInfo{
-      public Address(String address) {
+       public Address(String name, String address) {
+        super(name, address);
     }
-
 }
 
+
+ 
 
 public class Main00 {
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-	DisplayFirst();
+       Scanner input = new Scanner(System.in);
+        DisplayFirst();
+
 
 	}
 
@@ -69,8 +73,8 @@ public class Main00 {
 
 	System.out.print("Enter your address: ");
 	String address = input.nextLine();
+        
+        PersonalInfo personalInfo = new PersonalInfo(name, address);
+        personalInfo.DisplayInfo();
         }
 }
-}
-
-
